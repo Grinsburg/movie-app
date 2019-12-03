@@ -5,7 +5,7 @@ import styles from './MovieItem.module.css';
 const MovieItem = () => {
   return (
     <div class={styles.card}>
-      <img class={styles.cardImgTop} src="https://source.unsplash.com/daily?wood" alt="Card image top" />
+      <img src="https://source.unsplash.com/daily?wood" class={styles.cardImgTop} alt="Card" />
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>Card title</h3>
         <h4 className={styles.cardSubtitle}>Card subtitle</h4>
