@@ -1,9 +1,11 @@
 import React from 'react';
 
+import MovieItem from '../MovieItem'
+
 const Movie = () => {
   return (
     <div>
-      2
+      <MovieItem />
     </div>
   );
 }
