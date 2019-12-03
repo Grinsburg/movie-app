@@ -1,4 +1,4 @@
-/* .card{
+.card{
   position: relative;
   width: 300px;
   display: flex;
@@ -64,4 +64,4 @@ h3{
   background-color: #e0dddd;
     text-decoration: none;
     margin-top: 1rem;
-} */
+}
