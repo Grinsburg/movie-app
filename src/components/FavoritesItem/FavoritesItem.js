@@ -4,8 +4,8 @@ import styles from './FavoritesItem.module.css';
 
 const FavoritesItem = () => {
   return (
-    <div class={styles.card}>
-      <img src="https://source.unsplash.com/daily?wood" class={styles.cardImgTop} alt="Card" />
+    <div className={styles.card}>
+      <img src="https://source.unsplash.com/daily?wood" className={styles.cardImgTop} alt="Card" />
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>Card title</h3>
         <h4 className={styles.cardSubtitle}>Card subtitle</h4>
