@@ -25,7 +25,7 @@ export default class App extends Component {
         .then(data => {
           this.setState({
             isLoaded: true,
-            items: data
+            items: data.Search
           })
           console.log(data);
           console.log(data instanceof Object);
