@@ -1,5 +1,5 @@
 .container{
-  padding-top: 50px;
+  padding-top: 90px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -11,7 +11,7 @@
 }
 
 .cardMovie{
-  width: 60%;
+  width: 35%;
   position: relative;
   display: flex;
   flex-direction: column;

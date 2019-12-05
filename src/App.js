@@ -5,7 +5,8 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import Movie from './components/Movie';
 import Footer from './components/Footer';
-import Favorites from './components/Favorites'
+import Favorites from './components/Favorites';
+import MoviePage from './components/MoviePage';
 
 
 let title = 'Titanic';
@@ -55,6 +56,9 @@ export default class App extends Component {
             <Route exact path="/favorites">
               <Favorites />
               <Footer />
+            </Route>
+            <Route exact path="/link">
+              <MoviePage />
             </Route>
           </Switch>
         </Router>
