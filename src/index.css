@@ -1,11 +1,7 @@
 html {
-  position: relative;
   min-height: 100%;
 }
 
-body{
-  padding-bottom: 70px; 
-}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
