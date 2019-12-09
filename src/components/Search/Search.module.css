@@ -8,7 +8,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: 50px auto;
+  padding-bottom: 70px;
 }
+
 
 .inputGroup {
   position: relative;
