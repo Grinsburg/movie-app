@@ -4,11 +4,11 @@ import FavoritesItem from '../FavoritesItem';
 
 import styles from './Favorites.module.css';
 
-const Favorites = () => {
+const Favorites = ({items}) => {
 
   return (
     <div className={styles.container}>
-      <FavoritesItem />
+      <FavoritesItem id={items.imdbID} />
     </div>
   );
 }

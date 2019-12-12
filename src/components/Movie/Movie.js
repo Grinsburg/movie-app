@@ -1,19 +1,43 @@
-import React from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
 
-import styles from './Movie.module.css';
-import MovieItem from '../MovieItem';
+import styles from "./Movie.module.css";
+import MovieItem from "../MovieItem";
 
-const Movie = ({ items }) => {
+const Movie = props => {
+  const { items } = props;
+  console.log(props)
+
   return (
-        <div className={styles.container}>
-          {items.map(item => (
-            <Router>
-              <MovieItem key={item.imdbID} id={item.imdbID} title={item.Title} plot={item.plot} released={item.Year} poster={item.Poster} />
-            </Router>
-          ))}
+    <div>
+      <div className={styles.container}>
+        <div
+          className={styles.toast}
+        >
+          <div className={styles.toastHeader}>
+            <strong className={styles.mrAuto}>{}</strong>
+            <button
+              type="button"
+              className={styles.close}
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         </div>
+      </div>
+      <div className={styles.container}>
+        {items.map(item => (
+          <MovieItem
+            key={item.imdbID}
+            id={item.imdbID}
+            title={item.Title}
+            plot={item.plot}
+            released={item.Year}
+            poster={item.Poster}
+          />
+        ))}
+      </div>
+    </div>
   );
-}
+};
 
 export default Movie;

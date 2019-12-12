@@ -1,5 +1,7 @@
 .container{
   padding-top: 90px;
+  padding-top: 90px;
+  padding-bottom: 90px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -11,10 +13,10 @@
 }
 
 .cardMovie{
-  width: 35%;
+  max-width: 55%;
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
@@ -41,9 +43,9 @@
 }
 
 .cardText{
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 16px;
 }
 
 h3{
@@ -54,4 +56,50 @@ h3{
   font-size: 1.75rem;
   margin-top: 0;
   
+}
+
+p span{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.fas{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+
+.far:before{
+  background-image: url(../../bookmark-regular.svg);
+  content: ' ';
+  background-size: 30px 30px; 
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.fas:before{
+  background: url(../../bookmark-solid.svg);
+  content: ' ';
+  background-size: 30px 30px; 
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.faFalse{
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/likes-folder--v1.png');
+}
+
+.faTrue{
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  background-image: url("https://img.icons8.com/ios/50/000000/likes-folder.png");
 }
