@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import {Provider} from 'react-redux';
 
 import Navbar from './components/Navbar';
 import Search from './components/Search';
@@ -43,7 +44,6 @@ export default class App extends Component {
     }
 
     return (
-      <div>
         <Router>
           <Navbar />
           <Switch>
@@ -58,7 +58,6 @@ export default class App extends Component {
             </Route>
           </Switch>
         </Router>
-      </div>
     );
   }
 }
