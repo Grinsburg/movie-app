@@ -1,12 +1,19 @@
-import React from "react";
+import React, {Component} from "react";
+
+import { connect } from 'react-redux';
+import { fetchMovie } from '../../actions/searchActions'
 
 import styles from "./Movie.module.css";
 import MovieItem from "../MovieItem";
 
-const Movie = props => {
-  const { items } = props;
-  console.log(props)
+class Movie extends Component {
 
+  componentDidMount(){
+    this.props.fetchMovie(this.props.match.params.id);
+  }
+  
+ render(){
+  const { movies } = this.props;
   return (
     <div>
       <div className={styles.container}>
@@ -25,7 +32,7 @@ const Movie = props => {
         </div>
       </div>
       <div className={styles.container}>
-        {items.map(item => (
+        {movies.Search.map(item => (
           <MovieItem
             key={item.imdbID}
             id={item.imdbID}
@@ -38,6 +45,8 @@ const Movie = props => {
       </div>
     </div>
   );
+ }
 };
+
 
 export default Movie;
