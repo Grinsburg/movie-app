@@ -7,12 +7,10 @@ import Search from "../Search";
 
 export class Movie extends Component {
   render() {
-    const { movies, value } = this.props;
-    console.log(movies);
-    console.log(this.props);
+    const { movies, text } = this.props;
     return (
       <div>
-        <Search value={value} fetchMovie={this.fetchMovie} />
+        <Search value={text} />
         <div className={styles.container}>
           {movies.map((item, index) => (
             <MovieItem

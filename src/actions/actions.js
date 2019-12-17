@@ -1,16 +1,16 @@
 import { SEARCH_MOVIE, FETCH_MOVIE, FETCH_MOVIES } from './types';
 import axios from 'axios';
 
-export const searchMovie = value => dispatch => {
+export const searchMovie = text => dispatch => {
     dispatch({
         type: SEARCH_MOVIE,
-        payload: value
+        payload: text
     });
 };
 
-export const fetchMovies = value => dispatch => {
+export const fetchMovies = text => dispatch => {
     axios
-        .get(`http://www.omdbapi.com/?apikey=3350d914&s=${value}`)
+        .get(`http://www.omdbapi.com/?apikey=3350d914&s=${text}`)
         .then(response => 
             dispatch({
                 type: FETCH_MOVIES,

@@ -6,12 +6,12 @@ import styles from './MovieItem.module.css';
 
 const MovieItem = (props) => {
 
-  const { id, plot, title, released, poster } = props
+  const { id, plot, title, released, poster } = props;
 
   return (
     <div>
       <div className={styles.card}>
-        <img src={poster} className={styles.cardImgTop} alt={title} />
+        <img src={poster === "N/A" ? "https://github.com/Grinsburg/movie-app/blob/iss15-Redux/src/404.jpg?raw=true" : poster } className={styles.cardImgTop} alt={title} />
         <div className={styles.cardBody}>
           <h3 className={styles.cardTitle}>{title}</h3>
           <h4 className={styles.cardSubtitle}>{plot}</h4>

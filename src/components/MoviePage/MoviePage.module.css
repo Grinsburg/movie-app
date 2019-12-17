@@ -103,3 +103,25 @@ p span{
   cursor: pointer;
   background-image: url("https://img.icons8.com/ios/50/000000/likes-folder.png");
 }
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  cursor: pointer;
+  color: #000;
+  background-color: #e0dddd;
+    text-decoration: none;
+    
+}

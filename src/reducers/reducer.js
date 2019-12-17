@@ -1,7 +1,7 @@
 import { SEARCH_MOVIE, FETCH_MOVIE, FETCH_MOVIES } from "../actions/types";
 
 const initialState = {
-  value: "",
+  text: "",
   movies: [],
   movie: []
 };
@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
     case SEARCH_MOVIE:
       return {
         ...state,
-        value: action.payload
+        text: action.payload
       };
     case FETCH_MOVIES:
       return {
