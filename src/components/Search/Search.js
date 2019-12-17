@@ -3,29 +3,27 @@ import React, { Component } from 'react';
 import styles from './Search.module.css';
 
 class Search extends Component {
-  state = {
-    isOnClick: '',
-    value: ''
+  constructor(props){
+    super(props);
+    this.state = {
+      value: ' '
+    }
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  onChange =(e) => {
-    e.preventDefault();
-    console.log(e.target.value);
+  handleChange(event){
+    this.setState({value: event.target.value});
   }
 
   
 
-  handleClick(e){
-    e.preventDefault();
-    console.log(1);
-  }
-
   render() {
+    const {value} = this.state
     return (
       <div className={styles.container}>
         <div className={styles.inputGroup}>
-          <input type="text" className={styles.formControl} onChange={this.onChange} placeholder="Search movie" />
-          <button className={styles.btn} onClick={this.handleClick} type="button">
+          <input type="text" className={styles.formControl} onChange={this.handleChange} placeholder="Search movie" />
+          <button className={styles.btn} onClick={()=>this.props.fetchMovie(value)} type="button">
             <i className={styles.fa}></i>
           </button>
         </div>

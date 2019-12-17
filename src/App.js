@@ -1,65 +1,57 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from './components/Navbar';
-import Search from './components/Search';
-import Movie from './components/Movie';
-import Footer from './components/Footer';
-import Favorites from './components/Favorites'
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import Movie from "./components/Movie";
+import Footer from "./components/Footer";
+import Favorites from "./components/Favorites";
+import MoviePage from "./components/MoviePage";
 
-
-let title = 'Titanic';
 
 export default class App extends Component {
-  
   state = {
-    items: [],
-    isLoaded: false
-  }
+    items: []
+  };
 
-  componentDidMount(){
-      const url = `http://www.omdbapi.com/?apikey=3350d914&s=${title}`;
-      console.log(url);
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          this.setState({
-            isLoaded: true,
-            items: data.Search
-          })
-          console.log(data);
-          console.log(data instanceof Object);
-          console.log(typeof data);
-          console.log(this.state.items);
-        })
+  fetchMovie = value => {
+    const url = `http://www.omdbapi.com/?apikey=3350d914&s=${value}`;
+    console.log(url);
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          items: data.Search
+        });
+        console.log(data);
+      });
+  };
+
+  componentDidMount() {
+    this.fetchMovie(this.props.value);
   }
 
   render() {
-
-    let { isLoaded, items} = this.state;
-
-    if (!isLoaded) {
-      return <div>Loading...</div>
-    }
+    const { items } = this.state;
 
     return (
-      <div>
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              <Search />
-              <Movie items={items} />
-              <Footer />
-            </Route>
-            <Route exact path="/favorites">
-              <Favorites />
-              <Footer />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Search fetchMovie={this.fetchMovie} />
+            <Movie items={items} fetchMovie={this.fetchMovie} />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites items={items} />
+          </Route>
+          <Route exact path="/link">
+            <MoviePage />
+          </Route>
+          <Route exact path="/movie/:id" component={MoviePage} />
+        </Switch>
+        <Footer />
+      </Router>
     );
   }
 }
-

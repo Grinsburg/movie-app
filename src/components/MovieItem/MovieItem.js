@@ -1,17 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './MovieItem.module.css';
 
-const MovieItem = ({key, plot, title, released, poster}) => {
+
+const MovieItem = (props) => {
+
+  const { id, plot, title, released, poster } = props
+
   return (
-    <div key={key} className={styles.card}>
-      <img src={poster} className={styles.cardImgTop} alt={title} />
-      <div className={styles.cardBody}>
-        <h3 className={styles.cardTitle}>{title}</h3>
-        <h4 className={styles.cardSubtitle}>{plot}</h4>
-        <p className={styles.cardText}>{released}</p>
-        <a href="?" className={styles.btn}>More</a>
+    <div>
+      <div className={styles.card}>
+        <img src={poster} className={styles.cardImgTop} alt={title} />
+        <div className={styles.cardBody}>
+          <h3 className={styles.cardTitle}>{title}</h3>
+          <h4 className={styles.cardSubtitle}>{plot}</h4>
+          <p className={styles.cardText}>{released}</p>
+          <Link to={`/movie/${id}`} className={styles.btn}>More</Link>
         </div>
+      </div>
     </div>
   );
 }
