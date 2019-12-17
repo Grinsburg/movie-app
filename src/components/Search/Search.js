@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 
 import styles from './Search.module.css';
 
-import {fetchMovie} from '../../actions/searchActions'
-import { connect } from 'react-redux';
-
-export class Search extends Component {
+class Search extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -18,19 +15,15 @@ export class Search extends Component {
     this.setState({value: event.target.value});
   }
 
-  onClick = e =>{
-    e.preventDefault();
-    this.props.fetchMovie(this.props.value)
-}
-
-// ()=>this.props.fetchMovie(value)
+  
 
   render() {
+    const {value} = this.state
     return (
       <div className={styles.container}>
         <div className={styles.inputGroup}>
           <input type="text" className={styles.formControl} onChange={this.handleChange} placeholder="Search movie" />
-          <button className={styles.btn} onClick={this.onClick} type="button">
+          <button className={styles.btn} onClick={()=>this.props.fetchMovie(value)} type="button">
             <i className={styles.fa}></i>
           </button>
         </div>
@@ -39,8 +32,4 @@ export class Search extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   text: state.movies.text
-// })
-
-export default Search
+export default Search;
