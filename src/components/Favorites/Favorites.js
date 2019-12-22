@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { Component } from "react";
 
-import FavoritesItem from '../FavoritesItem';
+import FavoritesItem from "../FavoritesItem";
+import { loadFromLocalStorage } from "../../service/service";
 
-import styles from './Favorites.module.css';
+import styles from "./Favorites.module.css";
 
-const Favorites = ({items}) => {
+class Favorites extends Component {
+  state = {
+    lsData: {}
+  };
 
-  return (
-    <div className={styles.container}>
-      <FavoritesItem id={items.imdbID} />
-    </div>
-  );
+  componentDidMount() {
+    const data = loadFromLocalStorage();
+    if (data) {
+      this.setState({lsData:data});
+    }
+  }
+
+  render() {
+    const { lsData } = this.state;
+    console.log(lsData);
+   
+    return (
+      <div className={styles.container}>
+        <FavoritesItem />
+      </div>
+    );
+  }
 }
 
 export default Favorites;

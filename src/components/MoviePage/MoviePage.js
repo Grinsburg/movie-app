@@ -4,14 +4,36 @@ import { Link } from 'react-router-dom';
 import styles from "./MoviePage.module.css";
 
 import { fetchMovie } from "../../actions/actions";
+import { saveToLocalStorage } from '../../service/service'
 import { connect } from "react-redux";
 export class MoviePage extends Component {
+
+state = {
+  active: false
+}
+  onClickFavorites =() =>{
+    this.setState({
+      active: !this.state.active
+    })
+  }
+
   componentDidMount() {
     this.props.fetchMovie(this.props.match.params.id);
   }
 
   render() {
     const { movie } = this.props;
+    let { active } = this.state;
+    
+    if(active === true){
+      saveToLocalStorage(movie);
+    }
+
+    if(localStorage.getItem('state') !== null){
+      active = true;
+      console.log(1);
+    }
+
 
     return (
       <div className={styles.container}>
@@ -55,7 +77,7 @@ export class MoviePage extends Component {
               <span>imdbVotes: </span>
               {movie.imdbVotes}
             </p>
-            {/* <div className={active ? styles.faFalse : styles.faTrue} onClick={this.onClickFavorites}></div> */}
+            <div className={active ? styles.faFalse : styles.faTrue} onClick={this.onClickFavorites}></div>
           </div>
         </div>
       </div>
@@ -66,7 +88,8 @@ export class MoviePage extends Component {
 // export default MoviePage;
 
 const mapStateToProps = state => ({
-  movie: state.movies.movie
+  movie: state.movies.movie,
+  // active: state.active
 });
 
 export default connect(mapStateToProps, { fetchMovie })(MoviePage);

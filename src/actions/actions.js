@@ -1,4 +1,4 @@
-import { SEARCH_MOVIE, FETCH_MOVIE, FETCH_MOVIES } from './types';
+import { SEARCH_MOVIE, FETCH_MOVIE, FETCH_MOVIES, ACTIVE } from './types';
 import axios from 'axios';
 
 export const searchMovie = text => dispatch => {
@@ -31,4 +31,11 @@ export const fetchMovie = id => dispatch => {
             })    
         )
         .catch(err => console.log(err))
+}
+
+export const activeFavorites = active => dispatch => {
+    dispatch({
+        type: ACTIVE,
+        payload: active
+    })
 }
